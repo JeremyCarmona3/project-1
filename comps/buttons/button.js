@@ -1,0 +1,34 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const BtnCont = styled.div`
+  align-items: center;
+  justify-content: center;
+  width: ${props => props.Width};
+  height: ${props => props.Height};
+  background-color: ${props => props.BgColor};
+  border-radius: 17px;
+`;
+
+const BtnText = styled.text`
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFFFFF;
+`;
+
+export default function Button({
+  width = '172px',
+  height = '66px',
+  bgColor = '#280BB5',
+  text = 'Confirm'
+}) {
+  return (
+    <BtnCont
+      Width={width} 
+      Height={height}
+      BgColor={bgColor}
+    >
+      <BtnText>{text}</BtnText>
+    </BtnCont>
+  );
+}
