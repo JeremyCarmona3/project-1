@@ -8,14 +8,16 @@ background-color: #CC337C;
 color: #ffffff;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 12px;
+position: relative;
 `
 const CardHeader = styled.text`
 font-size: 20px;
 display: flex;
 justify-content: flex-start;
 align-items: baseline;
-margin: 15px;
-padding-top: 5px;
+position: absolute;
+top: 5px;
+left: 15px;
 `
 
 const CardText = styled.text`
@@ -23,14 +25,16 @@ font-size: 18px;
 display: flex;
 justify-content: flex-end;
 align-items: baseline;
-margin: 10px;
+position: absolute;
+bottom: 5px;
+right: 15px;
 `
 
-export default function ExpCard () {
+export default function ExpCard ({headerText="Bread",expiryDate="0 days"} ) {
   return (
   <CardUI>
-    <CardHeader>Bread</CardHeader>
-    <CardText>Days</CardText>
+    <CardHeader>{headerText}</CardHeader>
+    <CardText>{expiryDate}</CardText>
   </CardUI>
   );
 };

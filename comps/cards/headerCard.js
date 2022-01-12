@@ -16,10 +16,10 @@ const CardText = styled.text`
   padding-left: 10px;
 `
 
-export default function HeaderCard () {
+export default function HeaderCard ({text="Your Items"}) {
   return (
   <CardUI>
-    <CardText>Your Items</CardText>
+    <CardText>{text}</CardText>
   </CardUI>
   );
 }
