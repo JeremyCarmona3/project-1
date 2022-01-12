@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import CloseButton from "../buttons/closeButton";
 import DeleteButton from "../buttons/deleteButton";
-import Button from "../buttons/Button"
+import Button from "../buttons/button"
 
 const MainCont = styled.div`
   width: 250px;
