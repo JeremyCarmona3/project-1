@@ -9,25 +9,11 @@ import DeleteButton from '../comps/buttons/deleteButton';
 import CloseButton from '../comps/buttons/closeButton';
 import PlusButton from '../comps/buttons/plusButton';
 
-export default function Home() {
+export default function InfoPage() {
   return (
     <div className={styles.container}>
       <div className={styles.appCont}>
-        <div className={styles.flex}>
-          <HeaderCard />
-        </div>
-        <div className={styles.flex}>
-          <HeaderCard />
-          <ExpCard />
-        </div>
-        {/* <Button />
-        <DeleteButton />
-        <CloseButton />
-        <PlusButton />
         <Card />
-        <ExpCard />
-        <HeaderCard />
-        <InputCard /> */}
       </div>
     </div>
   )
