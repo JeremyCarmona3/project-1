@@ -5,11 +5,17 @@ import Card from '../comps/cards/card';
 import ExpCard from '../comps/cards/expiringCard';
 import HeaderCard from '../comps/cards/headerCard';
 import InputCard from '../comps/cards/inputCard';
+import DeleteButton from '../comps/buttons/deleteButton';
+import CloseButton from '../comps/buttons/closeButton';
+import PlusButton from '../comps/buttons/plusButton';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Button />
+      <DeleteButton />
+      <CloseButton />
+      <PlusButton />
       <Card />
       <ExpCard />
       <HeaderCard />
