@@ -1,36 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import { FiMoreVertical } from "react-icons/fi";
+import { RiCloseFill } from "react-icons/ri";
 
 
 const BtnCont = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
   width: ${props => props.Width};
   height: ${props => props.Height};
-  background-color: ${props => props.BgColor};
   border-radius: 17px;
 `;
 
-const BtnText = styled.text`
-  font-weight: 700;
-  font-size: 20px;
-  color: #FFFFFF;
-`;
-
-export default function SmallButton({
+export default function CloseButton({
   width = '66px',
   height = '66px',
-  bgColor = '#280BB5',
 }) {
   return (
     <BtnCont
       Width={width} 
       Height={height}
-      BgColor={bgColor}
     >
-      <BtnText></BtnText>
+      <RiCloseFill size='2em' color='#000' />
     </BtnCont>
   );
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { RiDeleteBin6Line } from "react-icons/ri";
+
+
 const BtnCont = styled.div`
   display: flex;
   align-items: center;
@@ -8,28 +11,23 @@ const BtnCont = styled.div`
   width: ${props => props.Width};
   height: ${props => props.Height};
   background-color: ${props => props.BgColor};
-  border-radius: 17px;
+  border-radius: ${props => props.BorderRadius};
 `;
 
-const BtnText = styled.text`
-  font-weight: 700;
-  font-size: 20px;
-  color: #FFFFFF;
-`;
-
-export default function Button({
-  width = '172px',
+export default function DeleteButton({
+  width = '66px',
   height = '66px',
   bgColor = '#280BB5',
-  text = 'Confirm'
+  borderRadius = '17px',
 }) {
   return (
     <BtnCont
       Width={width} 
       Height={height}
       BgColor={bgColor}
+      BorderRadius={borderRadius}
     >
-      <BtnText>{text}</BtnText>
+      <RiDeleteBin6Line size='2em' color='#fff' />
     </BtnCont>
   );
 }
