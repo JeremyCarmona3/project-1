@@ -5,8 +5,8 @@ import DeleteButton from "../buttons/deleteButton";
 import Button from "../buttons/button"
 
 const MainCont = styled.div`
-  width: 250px;
-  height: 500px;
+  width: 380px;
+  height: 900px;
   background-color: #33b0cc;
   border-radius: 12px;
   display: flex;
@@ -16,17 +16,19 @@ const MainCont = styled.div`
 const CardText = styled.p`
   font-weight: ${(props) => props.fWeight};
   color: white;
+  font-size:20px;
 `;
 
 const TextCont = styled.div`
   margin-left: 15px;
   display: flex;
   flex-direction: column;
-  flex-basis: 100px;
+  flex-basis: 200px;
 `;
 
 const TextSubCont = styled.div`
   margin-bottom: -20px;
+  flex-basis:80px;
 `;
 
 const IconCont = styled.div`
@@ -39,7 +41,7 @@ const IconCont = styled.div`
 
 const CloseCont = styled.div`
   position:absolute;
-  left:220px;
+  left:830px;
 
 `
 
