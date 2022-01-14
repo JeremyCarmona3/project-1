@@ -16,13 +16,15 @@ const BtnCont = styled.div`
 export default function CloseButton({
   width = '66px',
   height = '66px',
+  onClick = () => {}
 }) {
   return (
     <BtnCont
       Width={width} 
       Height={height}
+      onClick={onClick}
     >
-      <RiCloseFill size='2em' color='#000' />
+      <RiCloseFill size='2em' color='#FFF' />
     </BtnCont>
   );
 }

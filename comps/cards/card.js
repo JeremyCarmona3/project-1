@@ -31,6 +31,12 @@ const TextSubCont = styled.div`
   flex-basis:80px;
 `;
 
+const RowCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 const IconCont = styled.div`
   flex-basis: 90px;
   display: flex;
@@ -39,57 +45,39 @@ const IconCont = styled.div`
   margin:10px;
 `;
 
-const CloseCont = styled.div`
-  position:absolute;
-  left:830px;
+// const CloseCont = styled.div`
+//   position:absolute;
+//   left:830px;
 
-`
+// `
 
 export default function Card({
   text = "Date",
   header = "Title",
-  fWeight = 900
+  header1 = "Item Title",
+  header2 = "Expiry Date",
+  fWeight = 900,
+  onClickClose = () => {}
 }) {
   return (
     <MainCont>
       <TextCont>
         <TextSubCont>
-          <CardText fWeight={fWeight}>{header}</CardText>
+          <RowCont>
+            <CardText fWeight={fWeight}>{header1}</CardText>
+            <CloseButton onClick={onClickClose} />
+          </RowCont>
+          <form>
+            <input id='Item Title' type='text' placeholder="Add New Item"></input>
+          </form>
         </TextSubCont>
         <TextSubCont>
-          <CardText>{text}</CardText>
+          <CardText>{header2}</CardText>
+          <form>
+            <input id='Expiry Date' type='date'></input>
+          </form>
         </TextSubCont>
-        <CloseCont>
-        <CloseButton/>
-        </CloseCont>
-    
-      </TextCont>
 
-      <TextCont>
-        <TextSubCont>
-          <CardText fWeight={fWeight}>{header}</CardText>
-        </TextSubCont>
-        <TextSubCont>
-          <CardText>{text}</CardText>
-        </TextSubCont>
-      </TextCont>
-
-      <TextCont>
-        <TextSubCont>
-          <CardText fWeight={fWeight}>{header}</CardText>
-        </TextSubCont>
-        <TextSubCont>
-          <CardText>{text}</CardText>
-        </TextSubCont>
-      </TextCont>
-
-      <TextCont>
-        <TextSubCont>
-          <CardText fWeight={fWeight}>{header}</CardText>
-        </TextSubCont>
-        <TextSubCont>
-          <CardText>{text}</CardText>
-        </TextSubCont>
       </TextCont>
 
       <IconCont>
