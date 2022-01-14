@@ -9,12 +9,9 @@ import DeleteButton from '../comps/buttons/deleteButton';
 import CloseButton from '../comps/buttons/closeButton';
 import PlusButton from '../comps/buttons/plusButton';
 
-import { useRouter } from 'next/router'
-
 import React, { useState } from 'react';
 
 export default function Home() {
-  const router = useRouter()
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -32,7 +29,7 @@ export default function Home() {
         <div className={styles.appCont}>
           <div className={styles.flex}>
             <HeaderCard />
-            <InputCard onClick={() => router.push('/infopage')} />
+            <InputCard />
           </div>
           <div className={styles.flex}>
             <HeaderCard />
