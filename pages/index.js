@@ -11,7 +11,7 @@ import PlusButton from '../comps/buttons/plusButton';
 
 import { useRouter } from 'next/router'
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
   const router = useRouter()
@@ -26,38 +26,41 @@ export default function Home() {
     }
   ]
 
-  const [value, setValue] = useState(null)
-  const inputValue = (e) => {
-    setName(e.target.value);
-  };
-  return (
-    <div className={styles.container}>
-      <div className={styles.appCont}>
-        <div className={styles.flex}>
-          <HeaderCard />
-          {foods.map(f =>(
-              <InputCard foodItem={f.name} onClick={() => router.push('/infopage')} />
-          ))}
-         
-        </div>
-        <div className={styles.flex}>
-          <HeaderCard />
+  const [modalVisible, setModalVisible] = useState(false);
 
-          {foods.map(f =>(
-            <ExpCard headerText={f.name} expiryDate={f.date} />
+  function ShowCard() {
+    setModalVisible(true);
+  }
 
-          ))}
-          <PlusButton />
+  function CloseCard() {
+    setModalVisible(false);
+  }
+
+  if (modalVisible === false) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.appCont}>
+          <div className={styles.flex}>
+            <HeaderCard />
+            <InputCard onClick={() => router.push('/infopage')} />
+          </div>
+          <div className={styles.flex}>
+            <HeaderCard />
+            <ExpCard />
+            <PlusButton onClick={ShowCard}/>
+          </div>
         </div>
-        {/* <Button />
-        <DeleteButton />
-        <CloseButton />
-        <PlusButton />
-        <Card />
-        <ExpCard />
-        <HeaderCard />
-        <InputCard /> */}
       </div>
-    </div>
-  )
+    )
+  }
+  else {
+    return (
+      <div className={styles.container}>
+        <div className={styles.appCont}>
+          <Card onClickClose={CloseCard}/>
+        </div>
+      </div>
+    )
+  }
+
 }
