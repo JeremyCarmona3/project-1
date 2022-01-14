@@ -1,8 +1,14 @@
-import * as React from "react";
 import styled from "styled-components";
 import CloseButton from "../buttons/closeButton";
 import DeleteButton from "../buttons/deleteButton";
 import Button from "../buttons/button"
+import React, { useState } from 'react';
+import ExpCard from '../cards/expiringCard';
+import HeaderCard from '../cards/headerCard';
+import InputCard from '../cards/inputCard';
+
+
+
 
 const MainCont = styled.div`
   width: 380px;
@@ -57,8 +63,26 @@ export default function Card({
   header1 = "Item Title",
   header2 = "Expiry Date",
   fWeight = 900,
-  onClickClose = () => {}
+  onClickClose = () => {},
+  onClickPush = ()=>{}
+  
+ 
 }) {
+
+  const [name, setName] = useState(null)
+  const nameValue = (e) => {
+    setName(e.target.value);
+  };
+
+
+  const [date, setDate] = useState(null)
+  const dateValue = (e) => {
+    setDate(e.target.value);
+  };
+
+  const [food, setFood] = useState(food);
+
+  
   return (
     <MainCont>
       <TextCont>
@@ -68,21 +92,28 @@ export default function Card({
             <CloseButton onClick={onClickClose} />
           </RowCont>
           <form>
-            <input id='Item Title' type='text' placeholder="Add New Item"></input>
+            <input onKeyUp={nameValue} id='Item Title' type='text' placeholder="Add New Item"></input>
           </form>
         </TextSubCont>
         <TextSubCont>
           <CardText>{header2}</CardText>
           <form>
-            <input id='Expiry Date' type='date'></input>
+            <input onChange={dateValue} id='Expiry Date' type='date'></input>
           </form>
+      
+      
         </TextSubCont>
 
       </TextCont>
 
       <IconCont>
         <DeleteButton width={"55px"} height={"55px"}/>
-        <Button width={"130px"} height={"55px"}/>
+        <Button width={"130px"} height={"55px"} onClick={()=> {
+         const food = {name:name, date:date}
+        
+          onClickPush(food)
+          
+        }}/>
       </IconCont>
     </MainCont>
   );
