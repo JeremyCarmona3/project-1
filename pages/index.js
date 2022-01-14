@@ -41,12 +41,19 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.appCont}>
           <div className={styles.flex}>
-            <HeaderCard />
-            <InputCard onClick={() => router.push('/infopage')} />
-          </div>
-          <div className={styles.flex}>
-            <HeaderCard />
-            <ExpCard />
+          <HeaderCard />
+          {foods.map(f =>(
+              <InputCard foodItem={f.name} onClick={() => router.push('/infopage')} />
+          ))}
+         
+        </div>
+        <div className={styles.flex}>
+          <HeaderCard />
+
+          {foods.map(f =>(
+            <ExpCard headerText={f.name} expiryDate={f.date} />
+
+          ))}
             <PlusButton onClick={ShowCard}/>
           </div>
         </div>
@@ -64,3 +71,5 @@ export default function Home() {
   }
 
 }
+
+
