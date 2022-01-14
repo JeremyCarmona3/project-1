@@ -11,14 +11,14 @@ import PlusButton from '../comps/buttons/plusButton';
 
 import React, { useState } from 'react';
 const foods = [
-  { id:0,
-    name: "Apple",
-    date: "20/12/2022",
-  },
-  { id:1,
-    name: "Orange",
-    date: "10/1/2022",
-  }
+  // { id:0,
+  //   name: "Apple",
+  //   date: "20/12/2022",
+  // },
+  // { id:1,
+  //   name: "Orange",
+  //   date: "10/1/2022",
+  // }
 ]
 export default function Home() {
  
@@ -34,6 +34,7 @@ export default function Home() {
     setModalVisible(false);
   }
   function capture(food){
+    setModalVisible(false);
     foods.push(food)
     setFoodArr(foods)
   } 

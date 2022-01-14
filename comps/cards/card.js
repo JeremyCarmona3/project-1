@@ -33,7 +33,7 @@ const TextCont = styled.div`
 `;
 
 const TextSubCont = styled.div`
-  margin-bottom: -20px;
+  /* margin-bottom: -20px; */
   flex-basis:80px;
 `;
 
