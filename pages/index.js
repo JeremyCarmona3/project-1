@@ -9,8 +9,6 @@ import DeleteButton from '../comps/buttons/deleteButton';
 import CloseButton from '../comps/buttons/closeButton';
 import PlusButton from '../comps/buttons/plusButton';
 
-import { useRouter } from 'next/router'
-
 import React, { useState } from 'react';
 
 export default function Home() {
