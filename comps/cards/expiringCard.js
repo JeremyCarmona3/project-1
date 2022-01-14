@@ -10,7 +10,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 12px;
 position: relative;
 `
-const CardHeader = styled.text`
+const CardHeader = styled.p`
 font-size: 20px;
 display: flex;
 justify-content: flex-start;
@@ -20,7 +20,7 @@ top: 5px;
 left: 15px;
 `
 
-const CardText = styled.text`
+const CardText = styled.p`
 font-size: 18px;
 display: flex;
 justify-content: flex-end;

@@ -9,65 +9,98 @@ import DeleteButton from '../comps/buttons/deleteButton';
 import CloseButton from '../comps/buttons/closeButton';
 import PlusButton from '../comps/buttons/plusButton';
 
-import { useRouter } from 'next/router'
-
 import React, { useState } from 'react';
 
 export default function Home() {
-  const foods = [
-    { id:0,
-      name: "Apple",
-      date: "20/12/2022",
-    },
-    { id:1,
-      name: "Orange",
-      date: "10/1/2022",
-    }
-  ]
-
   const [modalVisible, setModalVisible] = useState(false);
 
-  function ShowCard() {
-    setModalVisible(true);
-  }
+  if (process.browser) {
+    var itemElement = document.getElementById('Item Title');
+    var dateElement = document.getElementById('Expiry Date');
+    if (itemElement != null && dateElement != null) {
+      var newFood = itemElement.value;
+      var newExpDate = dateElement.value;
+  
+      console.log(newFood);
+      console.log(newExpDate);
 
-  function CloseCard() {
-    setModalVisible(false);
-  }
+      // window.localStorage.setItem('name', newFood);
+      // window.localStorage.setItem('date', newExpDate);
 
+      // var addFood = {
+      //   name: newFood,
+      //   date: newExpDate
+      // };
+      // foods[0] = prompt("New member name?");
+      // localStorage.setItem("Foods", JSON.stringify(addFood));
 
-  if (modalVisible === false) {
-    return (
-      <div className={styles.container}>
-        <div className={styles.appCont}>
+      // foods.push(storedFood);
+    }
+    else {
+      itemElement = null;
+      dateElement = null;
+    }
+    // var storedFood = JSON.parse(localStorage.getItem("Foods"));
+
+    // console.log(storedFood);
+
+    // const foods = [];
+
+    // foods.push(storedFood);
+
+    // const [modalVisible, setModalVisible] = useState(false);
+
+    function ShowCard() {
+      setModalVisible(true);
+    }
+
+    function CloseCard() {
+      setModalVisible(false);
+    }
+
+    function Confirm() {
+      setModalVisible(false);
+      console.log('Confirmed');
+      // foodData();
+    }
+
+    if (modalVisible === false) {
+      return (
+        <div className={styles.container}>
+          <div className={styles.appCont}>
+            <div className={styles.flex}>
+            <HeaderCard />
+            {foods.map(f =>(
+                <InputCard foodItem={f.name} />
+            ))}
+            
+          </div>
           <div className={styles.flex}>
-          <HeaderCard />
-          {foods.map(f =>(
-              <InputCard foodItem={f.name} />
-          ))}
-         
-        </div>
-        <div className={styles.flex}>
-          <HeaderCard />
-
-          {foods.map(f =>(
-            <ExpCard headerText={f.name} expiryDate={f.date} />
-
-          ))}
-            <PlusButton onClick={ShowCard}/>
+            <HeaderCard text='Expiration Dates'/>
+            {foods.map(f =>(
+              <ExpCard headerText={f.name} expiryDate={f.date} />
+            ))}
+              <PlusButton onClick={ShowCard}/>
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    }
+    else {
+      return (
+        <div className={styles.container}>
+          <div className={styles.appCont}>
+            <Card 
+              onClickClose={CloseCard} 
+              // onClickDelete={} 
+              onClickConfirm={Confirm}
+            />
+          </div>
+        </div>
+      )
+    }
   }
   else {
-    return (
-      <div className={styles.container}>
-        <div className={styles.appCont}>
-          <Card onClickClose={CloseCard}/>
-        </div>
-      </div>
-    )
+    return null;
   }
-
 }

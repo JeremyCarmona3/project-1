@@ -27,7 +27,7 @@ const TextCont = styled.div`
 `;
 
 const TextSubCont = styled.div`
-  margin-bottom: -20px;
+  /* margin-bottom: -20px; */
   flex-basis:80px;
 `;
 
@@ -57,7 +57,10 @@ export default function Card({
   header1 = "Item Title",
   header2 = "Expiry Date",
   fWeight = 900,
-  onClickClose = () => {}
+  onClickClose = () => {},
+  onClickDelete = () => {},
+  onClickConfirm = () => {}
+
 }) {
   return (
     <MainCont>
@@ -67,13 +70,13 @@ export default function Card({
             <CardText fWeight={fWeight}>{header1}</CardText>
             <CloseButton onClick={onClickClose} />
           </RowCont>
-          <form>
+          <form action="http://localhost:3000/" method="POST">
             <input id='Item Title' type='text' placeholder="Add New Item"></input>
           </form>
         </TextSubCont>
         <TextSubCont>
           <CardText>{header2}</CardText>
-          <form>
+          <form action="http://localhost:3000/" method="POST">
             <input id='Expiry Date' type='date'></input>
           </form>
         </TextSubCont>
@@ -81,8 +84,8 @@ export default function Card({
       </TextCont>
 
       <IconCont>
-        <DeleteButton width={"55px"} height={"55px"}/>
-        <Button width={"130px"} height={"55px"}/>
+        <DeleteButton width={"55px"} height={"55px"} onClick={onClickDelete}/>
+        <Button width={"130px"} height={"55px"} onClick={onClickConfirm}/>
       </IconCont>
     </MainCont>
   );

@@ -10,7 +10,7 @@ const CardUI = styled.div`
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
 `
-const CardText = styled.text`
+const CardText = styled.p`
   font-size: 24px;
   color: #ffffff;
   padding-left: 10px;
