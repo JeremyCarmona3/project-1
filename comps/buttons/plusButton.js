@@ -19,6 +19,7 @@ export default function PlusButton({
   height = '66px',
   bgColor = '#280BB5',
   borderRadius = '100px',
+  onClick = () => {}
 }) {
   return (
     <BtnCont
@@ -26,6 +27,7 @@ export default function PlusButton({
       Height={height}
       BgColor={bgColor}
       BorderRadius={borderRadius}
+      onClick={onClick}
     >
       <AiOutlinePlus size='2em' color='#fff' />
     </BtnCont>

@@ -11,30 +11,46 @@ import PlusButton from '../comps/buttons/plusButton';
 
 import { useRouter } from 'next/router'
 
+import React, { useState } from 'react';
+
 export default function Home() {
   const router = useRouter()
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.appCont}>
-        <div className={styles.flex}>
-          <HeaderCard />
-          <InputCard onClick={() => router.push('/infopage')} />
+  const [modalVisible, setModalVisible] = useState(false);
+
+  function ShowCard() {
+    setModalVisible(true);
+  }
+
+  function CloseCard() {
+    setModalVisible(false);
+  }
+
+  if (modalVisible === false) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.appCont}>
+          <div className={styles.flex}>
+            <HeaderCard />
+            <InputCard onClick={() => router.push('/infopage')} />
+          </div>
+          <div className={styles.flex}>
+            <HeaderCard />
+            <ExpCard />
+            <PlusButton onClick={ShowCard}/>
+          </div>
         </div>
-        <div className={styles.flex}>
-          <HeaderCard />
-          <ExpCard />
-          <PlusButton />
-        </div>
-        {/* <Button />
-        <DeleteButton />
-        <CloseButton />
-        <PlusButton />
-        <Card />
-        <ExpCard />
-        <HeaderCard />
-        <InputCard /> */}
       </div>
-    </div>
-  )
+    )
+  }
+  else {
+    return (
+      <div className={styles.container}>
+        <div className={styles.appCont}>
+          <Card onClickClose={CloseCard}/>
+        </div>
+      </div>
+    )
+  }
+
 }
