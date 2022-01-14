@@ -21,10 +21,11 @@ export default function Button({
   width = '172px',
   height = '66px',
   bgColor = '#280BB5',
-  text = 'Confirm'
+  text = 'Confirm',
+  onClick
 }) {
   return (
-    <BtnCont
+    <BtnCont onClick={onClick}
       Width={width} 
       Height={height}
       BgColor={bgColor}

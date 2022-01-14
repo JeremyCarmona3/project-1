@@ -12,19 +12,19 @@ import PlusButton from '../comps/buttons/plusButton';
 import { useRouter } from 'next/router'
 
 import React, { useState } from 'react';
-
+const foods = [
+  { id:0,
+    name: "Apple",
+    date: "20/12/2022",
+  },
+  { id:1,
+    name: "Orange",
+    date: "10/1/2022",
+  }
+]
 export default function Home() {
-  const router = useRouter()
-  const foods = [
-    { id:0,
-      name: "Apple",
-      date: "20/12/2022",
-    },
-    { id:1,
-      name: "Orange",
-      date: "10/1/2022",
-    }
-  ]
+ 
+
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -35,6 +35,16 @@ export default function Home() {
   function CloseCard() {
     setModalVisible(false);
   }
+  function capture(food){
+    foods.push(food)
+    setFoodArr(foods)
+  } 
+  const [foodArr, setFoodArr] = useState([]);
+
+
+  // 1 state for food array
+  // 2 push food to food array
+  // update state to food array
 
   if (modalVisible === false) {
     return (
@@ -42,8 +52,9 @@ export default function Home() {
         <div className={styles.appCont}>
           <div className={styles.flex}>
           <HeaderCard />
+
           {foods.map(f =>(
-              <InputCard foodItem={f.name} onClick={() => router.push('/infopage')} />
+              <InputCard foodItem={f.name} />
           ))}
          
         </div>
@@ -54,6 +65,7 @@ export default function Home() {
             <ExpCard headerText={f.name} expiryDate={f.date} />
 
           ))}
+         
             <PlusButton onClick={ShowCard}/>
           </div>
         </div>
@@ -64,7 +76,8 @@ export default function Home() {
     return (
       <div className={styles.container}>
         <div className={styles.appCont}>
-          <Card onClickClose={CloseCard}/>
+          <Card onClickPush={capture} onClickClose={CloseCard}/>
+         
         </div>
       </div>
     )
