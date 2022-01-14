@@ -15,12 +15,13 @@ const CardUI = styled.div`
 `
 
 export default function InputCard ({
-foodItem="item"
+  foodItem="item",
+  onClick = () => {},
 }) {
   return (
-    <CardUI >
+    <CardUI>
     <div>{foodItem}</div>
-    <FiMoreVertical/>
+    <FiMoreVertical onClick={onClick}/>
     </CardUI>
   );
 }
