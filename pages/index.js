@@ -9,10 +9,11 @@ import DeleteButton from '../comps/buttons/deleteButton';
 import CloseButton from '../comps/buttons/closeButton';
 import PlusButton from '../comps/buttons/plusButton';
 
+import { useRouter } from 'next/router'
+
 import React, { useState } from 'react';
 
 export default function Home() {
-  const router = useRouter()
   const foods = [
     { id:0,
       name: "Apple",
@@ -34,6 +35,7 @@ export default function Home() {
     setModalVisible(false);
   }
 
+
   if (modalVisible === false) {
     return (
       <div className={styles.container}>
@@ -41,7 +43,7 @@ export default function Home() {
           <div className={styles.flex}>
           <HeaderCard />
           {foods.map(f =>(
-              <InputCard foodItem={f.name} onClick={() => router.push('/infopage')} />
+              <InputCard foodItem={f.name} />
           ))}
          
         </div>
@@ -69,5 +71,3 @@ export default function Home() {
   }
 
 }
-
-
