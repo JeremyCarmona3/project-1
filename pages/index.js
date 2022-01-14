@@ -12,6 +12,17 @@ import PlusButton from '../comps/buttons/plusButton';
 import React, { useState } from 'react';
 
 export default function Home() {
+  const router = useRouter()
+  const foods = [
+    { id:0,
+      name: "Apple",
+      date: "20/12/2022",
+    },
+    { id:1,
+      name: "Orange",
+      date: "10/1/2022",
+    }
+  ]
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -28,12 +39,19 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.appCont}>
           <div className={styles.flex}>
-            <HeaderCard />
-            <InputCard />
-          </div>
-          <div className={styles.flex}>
-            <HeaderCard />
-            <ExpCard />
+          <HeaderCard />
+          {foods.map(f =>(
+              <InputCard foodItem={f.name} onClick={() => router.push('/infopage')} />
+          ))}
+         
+        </div>
+        <div className={styles.flex}>
+          <HeaderCard />
+
+          {foods.map(f =>(
+            <ExpCard headerText={f.name} expiryDate={f.date} />
+
+          ))}
             <PlusButton onClick={ShowCard}/>
           </div>
         </div>
@@ -51,3 +69,5 @@ export default function Home() {
   }
 
 }
+
+
